@@ -63,9 +63,9 @@
 
 <script lang="ts">
 import { defineComponent, reactive } from "vue";
-import { forgetPassword, login } from "../api/service";
-import { SET_USER } from "../store";
-import { User } from "../types";
+import { forgetPassword, login } from "../../api/service";
+import { SET_USER } from "../../store";
+import { User } from "../../types";
 
 export default defineComponent({
   name: "Login",
@@ -142,6 +142,7 @@ export default defineComponent({
               avatar: data.avatar,
               email: data.email,
               nickname: data.nickname,
+              is_superuser: data.is_superuser,
             };
 
             this.$store.commit(SET_USER, {

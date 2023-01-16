@@ -21,6 +21,7 @@ export default defineComponent({
 </script>
 
 <style lang="less">
+@import url("./less/index.less");
 body {
   background-color: #f9f9f9;
 }

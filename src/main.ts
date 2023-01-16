@@ -2,7 +2,22 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from "./router";
 import { StateKey, store } from "./store";
-import 'element-plus/dist/index.css';
+import 'element-plus/lib/theme-chalk/index.css';
+import 'element-plus/lib/theme-chalk/base.css';
+
+// @ts-ignore
+import VMdEditor from '@kangc/v-md-editor';
+import '@kangc/v-md-editor/lib/style/base-editor.css';
+// @ts-ignore
+import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+import '@kangc/v-md-editor/lib/theme/style/github.css';
+
+// highlightjs
+import hljs from 'highlight.js';
+
+VMdEditor.use(githubTheme, {
+    Hljs: hljs,
+});
 
 import {
     ElAffix,
@@ -98,4 +113,4 @@ plugins.forEach(plugin => {
 })
 
 
-app.use(router).use(store, StateKey).mount('#app')
+app.use(router).use(store, StateKey).use(VMdEditor).mount('#app')
